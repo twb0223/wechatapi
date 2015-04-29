@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.css" />
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <title>上传记录</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-default" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">图片列表</a>
+		</div>
+	    </nav>
+        </div>
+        <div class="row">
+            <table class="table table-striped table-hover" id="imgtable">
+                <thead>
+                    <tr>
+                    <th>
+                            序号
+                        </th>
+                        <th>
+                            上传用户
+                        </th>
+                        <th>
+                            上传时间
+                        </th>
+                        <th>
+                            图片大小
+                        </th>
+                        <th>
+                            预览
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $.getJSON("../ImgHandler.ashx?flag=getlist", function (data) {
+            var table = $("#imgtable");
+            var tr = "";
+            for (var i = 0; i < data.length; i++) {
+                tr += "<tr>";
+                tr += "<td>" + i+ "</td>";
+                tr += "<td>" + data[i].CreateBy + "</td>";
+                tr += "<td>" + data[i].CreateAt + "</td>";
+                tr += "<td>" + data[i].MaterialSize + "</td>";
+                tr += "<td><a>" + data[i].MaterialName + "</a></td>";
+                tr += "</tr>";              
+            }
+            table.append(tr);          
+        });
+    });
+</script>
+</html>
