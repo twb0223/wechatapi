@@ -36,6 +36,7 @@ namespace Web
             {
                 case "OneClick":
                     {
+                        
                         //这个过程实际已经在OnTextOrEventRequest中完成，这里不会执行到。
                         var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
                         reponseMessage = strongResponseMessage;
