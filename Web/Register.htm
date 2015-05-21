@@ -33,10 +33,6 @@
                     $("#status").html("已绑定账号：" + data + "&nbsp;&nbsp;可重新提交绑定新账号！");
                 }
             });
-            $("#clear").bind('click', function () {
-                account.val('');
-                password.val('');
-            });
             $("#Submit").bind('click', function () {
                 $.get('../Register.ashx?flag=reg&&openid=' + openid.val() + "&&account=" + account.val() + "&&password=" + password.val() + "&&random=" + d.getTime(), function (data) {
                     $(".col-md-12").eq(0).empty().html("<h3 style='font-weight:bold; color:Red;'>" + data + "</h3>");
@@ -57,44 +53,45 @@
         <div class="col-md-12">
             <form class="form-horizontal" role="form">
 
-            <div class="form-group">
-                <label for="Account" class="col-md-3 control-label">
-                    当前状态</label>
-                <div class="col-md-9">
-                    <span  id="status" style=" font-weight:bold; color:Red;"></span>
+                <div class="form-group">
+                    <label for="Account" class="col-md-2 control-label">
+                        当前状态
+                    </label>
+                    <div class="col-md-10">
+                        <span id="status" style=" font-weight:bold; color:Red;"></span>
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group">
-                <label for="openid" class="col-md-3 control-label">
-                    微信标识</label>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" id="openid" disabled />
+                <div class="form-group">
+                    <label for="openid" class="col-md-2 control-label">
+                        微信标识
+                    </label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="openid" disabled />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="Account" class="col-md-3 control-label">
-                    平台账号</label>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" id="Account" placeholder="平台账号">
+                <div class="form-group">
+                    <label for="Account" class="col-md-2 control-label">
+                        平台账号
+                    </label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="Account" placeholder="平台账号" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="Password" class="col-md-3 control-label">
-                    平台密码</label>
-                <div class="col-md-9">
-                    <input type="Password" class="form-control" id="Password" placeholder="平台密码">
+                <div class="form-group">
+                    <label for="Password" class="col-md-2 control-label">
+                        平台密码
+                    </label>
+                    <div class="col-md-10">
+                        <input type="Password" class="form-control" id="Password" placeholder="平台密码" />
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <div class="col-md-9">
-                    <button id="Submit" type="button" class="btn btn-default btn-md">
-                        <span class="glyphicon glyphicon-ok" style="cursor: pointer"></span>提交
-                    </button>
-                    <button type="button" id="clear" class="btn btn-default btn-md">
-                        <span style="cursor: pointer" class="glyphicon glyphicon-remove"></span>清空</button>
+                <div class="form-group">
+                    <div class="col-xs-12 col-lg-push-2 col-lg-10 col-sm-12 col-md-10 col-md-push-2">
+                        <button id="Submit" type="button" class="btn btn-info btn-block" style=" background-color:Green;">
+                            <span class="glyphicon glyphicon-ok" style="cursor: pointer"></span>绑定账号
+                        </button>
+                    </div>
                 </div>
-            </div>
             </form>
         </div>
     </div>
